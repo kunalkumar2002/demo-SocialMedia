@@ -38,4 +38,41 @@ const customConfig = {
 const someText = "Hello, World!";
 
 const newObj = { body: someText, ...customConfig };
-In this case, newObj will be { body: "Hello, World!", color: "red", size: "large" }. It combines the body property from someText and the properties from customConfig into a new object.
+In this case, newObj will be { body: "Hello, World!", color: "red", size: "large" }. 
+It combines the body property from someText and the properties from customConfig into a new object.
+
+
+***************   lec 9 -------- props Validation
+
+
+in small project we dont need of props validation but when project grow
+we may pass lot of props that will rise some issue and that will lead to some error
+so in that case we needed of props validation.
+
+for that we avode bugs by props checking there are multiple package are available for 
+pprops checking like FLOW package that build by fb itself , or props type package
+or by type checking using these three method we can validate pprops.
+
+//installing prop-types
+
+npi i prop-types
+
+//imppporting prop-types in our component
+
+import PropTypes from 'prop-types'
+
+
+//now teling our props is an array in component home 
+
+const Home = ({posts}){
+  return (
+    <div>
+      Home
+    </div>
+  )
+}
+
+Home.PropTypes = {
+  posts : PropTypes.array.isRequired,
+}
+

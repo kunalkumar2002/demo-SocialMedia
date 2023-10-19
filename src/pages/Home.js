@@ -1,10 +1,11 @@
 import styles from '../styles/home.module.css';
+import { Comment } from '../component';
 
 const Home = ({ posts }) => {
   return (
     <div className={styles.postsList}>
       {posts.map((post) => (
-        <div className={styles.postWrapper}>
+        <div className={styles.postWrapper} key={post._id}>
           <div className={styles.postHeader}>
             <div className={styles.postAvatar}>
               <img
@@ -40,15 +41,9 @@ const Home = ({ posts }) => {
             </div>
 
             <div className={styles.postCommentsList}>
-              <div className={styles.postCommentsItem}>
-                <div className={styles.postCommentHeader}>
-                  <span className={styles.postCommentAuthor}>Bill</span>
-                  <span className={styles.postCommentTime}>a minute ago</span>
-                  <span className={styles.postCommentLikes}>22</span>
-                </div>
-
-                <div className={styles.postCommentContent}>Random comment</div>
-              </div>
+              {post.comments.map((comment) => (
+                <Comment comment={comment} />
+              ))}
             </div>
           </div>
         </div>
