@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { getPosts } from '../api';
-import { Home } from '../pages';
+import { Home, Login, Page404 } from '../pages';
 import { Loder, Navbar } from './';
+import { Route, Routes } from 'react-router-dom';
+
+const About = () => {
+  return <h1>About</h1>;
+};
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -27,7 +32,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home posts={posts} />
+      <Routes>
+        <Route exact path="/" element={<Home posts={posts} />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
 }

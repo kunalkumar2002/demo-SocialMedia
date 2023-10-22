@@ -76,3 +76,35 @@ Home.PropTypes = {
   posts : PropTypes.array.isRequired,
 }
 
+
+// seting up routes 
+
+fist of all we have to install routes from react-router-dom
+
+npm i react-router-dom
+
+**after installation import BrouserRouter in our project
+like.
+
+imort {BrouserRouter as Router} from 'ract-router-dom'
+
+then worp our app in router like 
+<Router>
+  <APP />
+</Router>
+
+
+// for routing each component we use Route
+
+<Route />
+
+here we have to pass patha and element that we want to render
+
+<route path="/" Component={Home}>
+
+if we simplay pass this then first all upper componet will render then lastly this will render 
+but we nat get any exact page but it we will get combination of all page 
+
+for handle that essue we can use "exact"
+
+<route exact path="/" Component={Home}>
